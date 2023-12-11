@@ -1,0 +1,92 @@
+a)SELECT ServiceType,Semester,Sum(income),Sum(#consultanties)
+
+FROM Income i, Service s,Time t,Consultants_Branch c
+
+WHERE <joins> and Region='Lombardia'
+
+GROUP BY ServiceType,Semester,i
+
+
+b)SELECT 
+	sum(income),
+	sum(consultancies) 
+
+FROM Income,Company,Service,Consultants_Branch c,Time t
+
+WHERE Nationality = 'Italy' or Nationality='Germany'
+
+GROUP BY Region,Service,ServiceID,Year
+
+c)SELECT 
+	sum(income),
+	sum(income)/sum(#consultancies)
+
+FROM Income i, Company c, Service s, Time t
+
+WHERE Year = '2017' OR Year='2018 OR Year='2019'
+
+GROUP BY ServiceType,Nationality,Semester
+
+
+
+MatViewQuery:
+Come farla:
+Nel group by tutti gli attributi di tutti i group by+where
+Nel select tutte le measure tranne i ratio
+Nel from tutte le tabelle
+	SELECT ServiceType,Semester,Region,Service,Year,Nationality,
+	SUM(Income),Sum(#consultancies)
+
+	FROM Income i,Service s,Time t,Company c,Consultants_Branch cb
+
+	WHERE i.serviceid=s.serviceid and i.timeid=t.timeid and i.companyid=c.companyid
+	and i.branchid=cb.branchid
+
+	GROUP BY ServiceType,Semester,Region,Service,Year,Nationality
+
+
+Identifier della MatView:
+Selezionare il livello più basso di ogni dimension
+quindi: Service,Region,Nationality,Semester
+
+Popolare la mat view creata invece come create statement:
+Insert into matview(attributi)(query per creare la mat view)
+
+Trigger per aggiornare la mat view dalla fact table:
+
+CREATE TRIGGER RefreshViewIncome # Creazione
+AFTER INSERT ON Income 	# AFTER + evento(INSERT ON/UPDATE ON)
+FOR EACH ROW # Granularità, sempre for each row
+DECLARE # variables
+N number; # c'è sempre N s!
+# tutte le variabili degli attributi da salvare nella mat view
+VarService,VarServiceType,VarNationality,VarSemester,VarYear,VarRegion VARCHAR(20);
+
+#Per ogni dimension, faccio una query per ripescarmi i singoli attributi
+#In un trigger, ho l'oggetto NEW per accedere al record appena inserito
+BEGIN
+#Service Dimension
+SELECT Service INTO VarService,ServiceType INTO VarServiceType
+FROM Service
+WHERE ServiceID = :NEW.ServiceID:;
+#Consultants_branch
+SELECT Region INTO VarRegion
+FROM Consultants_branch
+WHERE BranchID=:NEW.BranchID;
+#.. stessa cosa per le altre dimensioni
+#Controllo se c'è un record con tutte queste informazioni
+SELECT COUNT(*) INTO N
+From ViewIncome
+#soltanto per gli attributi più bassi delle dimensioni
+WHERE Service = VarService AND Nationality=VarNationality AND Semester=VarSemester AND 
+      Region=VarRegion
+IF(N>0) THEN
+	#update the corrisponding record
+	UPDATE ViewIncome
+	SET TotIncome= TotIncome + :NEW.Income
+	TotConsultancies=TotConsultancies+ :NEW.#Consultancies
+	WHERE Service = VarService AND Nationality=VarNationality AND Semester=VarSemester AND 
+      	Region=VarRegion
+ELSE
+	INSERT INTO ViewIncome(Service,ServiceType,Nationality,Semester,Year,Region,
+	TotIncome,TotConsultancies(VarService,VarServiceType,#..#)

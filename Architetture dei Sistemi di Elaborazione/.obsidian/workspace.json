@@ -1,0 +1,197 @@
+{
+  "main": {
+    "id": "2af0c7bfb4d9c0b4",
+    "type": "split",
+    "children": [
+      {
+        "id": "fafdd80cf3df1bb1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9e406c40b4143caf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20. ARM ISA - SuperVisor Call.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "be9f5fda2fca8267",
+    "type": "split",
+    "children": [
+      {
+        "id": "89f844b855270bfc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a844ca1d0849e951",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2b17da6a763cbbb4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "febb52a33ae0eccf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "26d0d0a6a4953663",
+    "type": "split",
+    "children": [
+      {
+        "id": "bbd2c880314af05e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ede2aa84d02021d0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "20. ARM ISA - SuperVisor Call.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9073e5099f99c311",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "20. ARM ISA - SuperVisor Call.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b2e9bfe7b182843e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c7f5cedd06f5b646",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "20. ARM ISA - SuperVisor Call.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9e406c40b4143caf",
+  "lastOpenFiles": [
+    "23. Clocking and power control functions.md",
+    "PDF/ARM/23. Clocking and power control functions.pdf",
+    "22. Interrupt Controller.md",
+    "PDF/ARM/22. Interrupt Controller.pdf",
+    "21. ASM+C & C+ASM.md",
+    "PDF/ARM/21. ASM+C & C+ASM.pdf",
+    "img/pcon_reg.png",
+    "Pasted image 20231211123141.png",
+    "img/syscon_reg.png",
+    "20. ARM ISA - SuperVisor Call.md",
+    "5a. Eccezioni e interrupt nei processori pipelined.md",
+    "3. MIPS64.md",
+    "13. ARM ISA - Intro.md",
+    "PDF/PDF.zip",
+    "12. ARM - Advanced Risc Machine.md",
+    "19. ARM ISA - Stack and Subroutines.md",
+    "18. ARM ISA - Branches.md",
+    "17. ARM ISA - Memory.md",
+    "16. ARM ISA - Literal pools.md",
+    "15. ARM ISA - Directives.md",
+    "14. ARM ISA - ALU instructions.md",
+    "11. Multi-issue processors.md",
+    "PDF/ARM/12_ext.pdf",
+    "PDF/ARM/20. ARM ISA - SuperVisor Call.pdf",
+    "PDF/ARM/19. ARM ISA - Stack and Subroutines.pdf",
+    "PDF/ARM/18. ARM ISA - Branches.pdf",
+    "PDF/ARM/17. ARM ISA - Memory.pdf",
+    "PDF/ARM/16. ARM ISA - Literal pools.pdf",
+    "img/ex_volatile 1.png",
+    "img/ex_volatile.png",
+    "img/ext_asm.png",
+    "img/from_c_to_asm.png",
+    "img/from_asm_to_c.png",
+    "10. Speculation.md",
+    "9. Dynamic Scheduling Techniques.md",
+    "8. Branch Prediction Techniques.md",
+    "7. Memorie Cache.md",
+    "6. ILP - Instruction Level Parallelism.md",
+    "5. Pipelining avanzato.md",
+    "4. Pipelining base.md",
+    "2. ISA - Instruction Set Architecture.md",
+    "1. Introduction to Computer Design.md",
+    "img/msr_example.png",
+    "img/template_svc.png",
+    "Pasted image 20231009105903.png.md"
+  ]
+}

@@ -1,0 +1,70 @@
+l.d * 4 * 64 = 256 volte = 256 * 1 CPI = 256 CPI
+s.d * 3 * 64 = 192 volte = 192 * 1 CPI = 192 CPI
+
+add.d * 4 * 64 = 256 volte = 256 * 3 CPI = 768 CPI
+                             256 * 6 CPI = 1536 CPI
+
+mul.d * 2 * 64 = 128 volte = 128 * 8 CPI = 1024 CPI
+                             128 * 4 CPI = 512 CPI
+
+div.d * 64 = 64 volte = 64 * 20 CPI = 1280 CPI
+                        64 * 10 CPI = 640 CPI
+
+daddui * 64 + 2 = 66 volte = 66 * 1 CPI = 66 CPI
+
+bne * 64 volte = 64 volte = 64 * 1 CPI = 64 CPI
+
+NOP = 1 cpi
+
+3651 Clocks - Base
+4419 Clocks con FP Addition latency a 6 invece di 3 - Conf1
+3139 Clocks con FP Multiplier latency a 4 invece di 8 - Conf2
+3011 Clocks con FP Division latency a 10 invece di 20 - Conf3
+
+CPU time = 3651 / 10^9 = 0,000003651 secondi 0,00365 ms, 3651 ns
+
+RunBase: 3335 cycles - Cpu time: 3335 / 10^9 = 3335 ns
+RunConf1: 3719 cycles
+RunConf2: 2823 cycles
+RunConf3: 2695 cycles
+-----------------------------------------------------
+MUL speed-up
+l.d * 4 * 64 = 256 volte = 256 * 1 CPI = 256 CPI
+s.d * 3 * 64 = 192 volte = 192 * 1 CPI = 192 CPI
+
+add.d * 4 * 64 = 256 volte = 256 * 3 CPI = 768 CPI
+
+mul.d * 2 * 64 = 128 volte = 128 * 4 CPI = 512 CPI
+div.d * 64 = 64 volte = 64 * 20 CPI = 1280 CPI
+
+daddui * 64 + 2 = 66 volte = 66 * 1 CPI = 66 CPI
+
+bne * 64 volte = 64 volte = 64 * 1 CPI = 64 CPI
+
+NOP * 1 volta = 1 CPI
+
+3139 CPI
+CPU time = 3139 / 10^9 = 0,000003139 secondi 0,003139 ms, 3139 ns
+
+Run: 2823 cycles - Cpu time: 2823 / 10^9 = 2823 ns
+-----------------------------------------------------
+
+DIV speed-up
+l.d * 4 * 64 = 256 volte = 256 * 1 CPI = 256 CPI
+s.d * 3 * 64 = 192 volte = 192 * 1 CPI = 192 CPI
+
+add.d * 4 * 64 = 256 volte = 256 * 3 CPI = 768 CPI
+
+mul.d * 2 * 64 = 128 volte = 128 * 4 CPI = 512 CPI
+div.d * 64 = 64 volte = 64 * 10 CPI = 640 CPI
+
+daddui * 64 + 2 = 66 volte = 66 * 1 CPI = 66 CPI
+
+bne * 64 volte = 64 volte = 64 * 1 CPI = 64 CPI
+
+NOP * 1 volta = 1 CPI
+
+3011 CPI
+CPU time = 3011 / 10^9 = 0,000003011 secondi 0,003011 ms, 3011 ns
+
+Run: 2695 cycles - Cpu time: 2695 / 10^9 = 2695 ns

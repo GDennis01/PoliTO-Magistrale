@@ -1,0 +1,11 @@
+	
+	MOV R5,0
+	MOV R0, 0b10100000
+loop 	TST 1, R0, LSR R5
+	ADDEQ R5,R5,#1
+	BEQ loop
+
+	TST R5,1
+	SUBEQ R4,R2,R3
+	SUBNE R4,R2,R3
+	
