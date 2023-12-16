@@ -1,0 +1,62 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000         
+    3 00000000                 AREA             asm_functions, CODE, READONLY
+    4 00000000                 EXPORT           ASM_funct
+    5 00000000         ASM_funct
+    6 00000000         ; save current SP for a faster access 
+    7 00000000         ; to parameters in the stack
+    8 00000000 46EC            MOV              r12, sp
+    9 00000002         ; save volatile registers
+   10 00000002 E92D 4DF0       STMFD            sp!,{r4-r8,r10-r11,lr}
+   11 00000006         ; extract argument 4 and 5 into R4 and R5
+   12 00000006 F8DC 4000       LDR              r4, [r12]
+   13 0000000A F8DC 5004       LDR              r5, [r12,#4]
+   14 0000000E         
+   15 0000000E F8DF C00C       LDR              r12, =ASM_funct
+   16 00000012 F8CC 5000       STR              r5, [r12]
+   17 00000016         
+   18 00000016         ; setup a value for R0 to return
+   19 00000016 4628            MOV              r0, r5
+   20 00000018         ; restore volatile registers
+   21 00000018 E8BD 8DF0       LDMFD            sp!,{r4-r8,r10-r11,pc}
+   22 0000001C         
+   23 0000001C                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\asm_funct.d -o.\asm_funct.o -I.\RTE\_Target_1 -IC:\Users\denni\A
+ppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include -IC:\Users\denni\AppD
+ata\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include --predefine="__EVAL S
+ETA 1" --predefine="__UVISION_VERSION SETA 538" --predefine="_RTE_ SETA 1" --pr
+edefine="LPC175x_6x SETA 1" --predefine="_RTE_ SETA 1" --list=.\asm_funct.lst A
+SM_funct.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ASM_funct 00000000
+
+Symbol: ASM_funct
+   Definitions
+      At line 5 in file ASM_funct.s
+   Uses
+      At line 4 in file ASM_funct.s
+      At line 15 in file ASM_funct.s
+
+asm_functions 00000000
+
+Symbol: asm_functions
+   Definitions
+      At line 3 in file ASM_funct.s
+   Uses
+      None
+Comment: asm_functions unused
+2 symbols
+338 symbols in table

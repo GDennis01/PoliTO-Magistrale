@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork 
+-I.\RTE\_Target_1
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.7.0\Device\Include
+-D__UVISION_VERSION="526" -D_RTE_ -DLPC175x_6x -DSIMULATOR
+-o .\lib_timer.o --omf_browse .\lib_timer.crf --depend .\lib_timer.d "timer\lib_timer.c"
