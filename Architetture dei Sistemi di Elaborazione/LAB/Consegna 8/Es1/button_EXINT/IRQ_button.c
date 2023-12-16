@@ -2,7 +2,7 @@
 #include "lpc17xx.h"
 
 #include "../led/led.h"
-int counter=0;
+signed char counter=0;
 void EINT0_IRQHandler (void)	  
 {
 	counter = 0;
